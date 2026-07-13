@@ -25,3 +25,12 @@ Thumbs.db
 
 # Coverage
 coverage/
+Frontend/node_modules/
+Backend/node_modules/
+
+Frontend/dist/
+Backend/dist/
+
+.env
+Backend/.env
+Frontend/.env
