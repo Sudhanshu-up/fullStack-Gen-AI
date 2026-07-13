@@ -10,7 +10,11 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: "https://fullstack-gen-ai-qmxy.onrender.com",
+    
+   origin: [
+    "http://localhost:5173",
+    "https://full-stack-gen-ai-blue.vercel.app"
+  ],
     credentials: true
 }))
 
