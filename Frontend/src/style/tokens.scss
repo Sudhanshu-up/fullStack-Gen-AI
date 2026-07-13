@@ -1,0 +1,30 @@
+// ===== CSS custom properties — globally available, no @use needed anywhere =====
+:root {
+    // Colors
+    --ink: #060709;
+    --surface: rgba(13, 14, 18, 0.7);
+    --surface-hover: rgba(20, 21, 26, 0.85);
+    --parchment: #f8f9fa;
+    --muted: #8a8d90;
+    --lime: #ccff00;
+    --lime-bright: #d9ff33;
+    --lime-glow: rgba(204, 255, 0, 0.12);
+    --border: rgba(255, 255, 255, 0.08);
+    --border-glow: rgba(204, 255, 0, 0.2);
+
+    // Type
+    --font-display: "Bricolage Grotesque", serif;
+    --font-body: "Plus Jakarta Sans", sans-serif;
+    --font-mono: "IBM Plex Mono", monospace;
+
+    // Spacing
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 8rem;
+
+    // Layout
+    --navbar-height: 5.5rem;
+    --max-width: 1200px;
+}

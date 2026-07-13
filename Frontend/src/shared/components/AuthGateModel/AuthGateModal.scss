@@ -1,0 +1,73 @@
+.auth-gate-overlay{
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+}
+
+.auth-gate-modal{
+    position: relative;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 2.5rem;
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+
+    h3{
+        font-family: var(--font-display);
+        color: var(--parchment);
+        font-size: 1.4rem;
+        margin-bottom: 0.75rem;
+    }
+
+    p{
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .auth-gate-close{
+        position: absolute;
+        top: 0.75rem;
+        right: 0.9rem;
+        background: none;
+        border: none;
+        color: var(--muted);
+        font-size: 1.5rem;
+        cursor: pointer;
+
+        &:hover{
+            color: var(--parchment);
+        }
+    }
+
+    .auth-gate-buttons{
+        display: flex;
+        gap: 0.75rem;
+
+        a{
+            width: auto;
+            flex: 1;
+            padding: 0.7rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+    }
+
+    .auth-gate-secondary-btn{
+        background-color: transparent;
+        border: 1px solid var(--evergreen);
+        color: var(--parchment);
+
+        &:hover{
+            background-color: var(--evergreen);
+            color: var(--ink);
+        }
+    }
+}

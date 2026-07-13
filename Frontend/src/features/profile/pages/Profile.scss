@@ -1,0 +1,199 @@
+.profile-page {
+    min-height: calc(100vh - var(--navbar-height));
+    padding: 4rem 1.5rem 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+
+    .profile-header {
+        text-align: left;
+        margin-bottom: 2.5rem;
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--parchment);
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            color: var(--muted);
+            font-size: 1rem;
+        }
+    }
+}
+
+.profile-content-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+    align-items: start;
+
+    @media (max-width: 750px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+// Left Card
+.profile-avatar-card {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+    .avatar-preview-wrapper {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 2px solid var(--border);
+        margin-bottom: 1.5rem;
+        transition: border-color 0.2s;
+
+        &:hover {
+            border-color: var(--lime);
+
+            .avatar-upload-overlay {
+                opacity: 1;
+            }
+        }
+
+        .profile-avatar-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .avatar-upload-overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(6, 7, 9, 0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            cursor: pointer;
+            transition: opacity 0.2s;
+
+            span {
+                color: var(--lime);
+                font-size: 0.8rem;
+                font-weight: 700;
+                font-family: var(--font-mono);
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+        }
+    }
+
+    .profile-user-title {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--parchment);
+        margin-bottom: 0.25rem;
+    }
+
+    .profile-user-email {
+        font-size: 0.85rem;
+        color: var(--muted);
+    }
+}
+
+// Right Form Panel
+.profile-form {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.profile-success {
+    background-color: rgba(204, 255, 0, 0.05);
+    border: 1px solid rgba(204, 255, 0, 0.2);
+    color: var(--lime);
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.profile-error {
+    background-color: rgba(239, 68, 68, 0.05);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: #f87171;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.profile-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .profile-input {
+        background-color: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--border);
+        color: var(--parchment);
+        padding: 0.8rem 1rem;
+        border-radius: 0.75rem;
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        font-weight: 500;
+        outline: none;
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+        &:focus:not(.disabled) {
+            border-color: var(--lime);
+            background-color: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 0 12px rgba(204, 255, 0, 0.05);
+        }
+
+        &.disabled {
+            background-color: rgba(255, 255, 255, 0.01);
+            color: rgba(255, 255, 255, 0.35);
+            border-color: var(--border);
+            cursor: not-allowed;
+        }
+    }
+
+    .profile-field-hint {
+        color: rgba(255, 255, 255, 0.3);
+        font-size: 0.78rem;
+        margin-top: 0.15rem;
+    }
+}
+
+.profile-submit-btn {
+    align-self: flex-start;
+    padding: 0.75rem 2rem;
+    font-size: 0.95rem;
+}

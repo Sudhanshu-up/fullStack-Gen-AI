@@ -1,0 +1,66 @@
+.custom-cursor-dot,
+.custom-cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate3d(-100px, -100px, 0);
+    opacity: 0;
+    transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.custom-cursor-dot {
+    background-color: var(--parchment);
+    margin-top: -3px;
+    margin-left: -3px;
+
+    &.visible {
+        opacity: 1;
+    }
+
+    &.hovered {
+        background-color: var(--lime);
+        width: 8px;
+        height: 8px;
+        margin-top: -4px;
+        margin-left: -4px;
+    }
+}
+
+.custom-cursor-ring {
+    width: 24px;
+    height: 24px;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    margin-top: -12px;
+    margin-left: -12px;
+
+    &.visible {
+        opacity: 1;
+    }
+
+    &.hovered {
+        width: 48px;
+        height: 48px;
+        margin-top: -24px;
+        margin-left: -24px;
+        border-color: var(--lime);
+        background-color: rgba(204, 255, 0, 0.05);
+        box-shadow: 0 0 15px rgba(204, 255, 0, 0.2);
+    }
+}
+
+// Hide custom cursor on mobile touch screens
+@media (hover: none) and (pointer: coarse) {
+    .custom-cursor-dot,
+    .custom-cursor-ring {
+        display: none !important;
+    }
+    html.custom-cursor-enabled,
+    html.custom-cursor-enabled * {
+        cursor: auto !important;
+    }
+}
