@@ -16,24 +16,22 @@ const GetStarted = () => {
                 <div className="gs-feature-card">
                     <span className="gs-feature-num">01</span>
                     <h2>Interview Prep Report</h2>
-                    <p>Resume ya self-description do, job description do — matchScore, likely technical &amp; behavioral questions (with answers), skill gaps, aur ek day-wise prep plan milega.</p>
+                   <p>Provide a resume or self description along with a job description — get a matchScore, likely technical &amp; behavioral questions (with answers), skill gaps, and a day-wise prep plan.</p>
                 </div>
                 <div className="gs-feature-card">
                     <span className="gs-feature-num">02</span>
                     <h2>Tailored Resume Builder</h2>
-                    <p>Job description ke hisaab se ek naya, ATS-friendly resume banwao — apna purana resume reference bana ke, ya sirf skills/experience se.</p>
+                    <p>Get a new, ATS-friendly resume tailored to the job description — using your old resume as a reference, or just your skills and experience.</p>
                 </div>
             </section>
 
             <section className="gs-personalize">
                 <span className="gs-eyebrow">One more thing</span>
                 <h2>Your own animation, made from <em>you</em>.</h2>
-                <p>
-                    Jab register karoge, ek photo add karne ka option milega — optional hai, bina photo ke bhi
-                    register kar sakte ho. Lekin photo doge toh landing page ka woh particle effect jo tumne
-                    dekha, wahi <strong>tumhare khud ke photo</strong> se bane ga. Baad mein Profile se kabhi
-                    bhi photo add/change kar sakte ho.
-                </p>
+               <p>
+                   When you register, you'll have the option to add a profile photo — it's optional, and you
+                   can register without one. You can always add or change your photo later from your Profile.
+               </p>
             </section>
 
             <section className="gs-cta">

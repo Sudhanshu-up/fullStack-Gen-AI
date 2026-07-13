@@ -2,41 +2,39 @@ import React, { useRef, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { useAuth } from '../../auth/hooks/useAuth.js'
-import ParticlePortrait from '../../../shared/components/ParticlePortrait/ParticlePortrait.jsx'
+import AnimatedBackground from '../../../shared/components/AnimatedBackground/AnimatedBackground.jsx'
 import './Landing.scss'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const DEFAULT_AVATAR = "/WhatsApp Image 2026-07-01 at 3.19.57 PM.jpeg"
 
 const FEATURES = [
     {
         num: "01",
         title: "Interview Prep Report",
-        desc: "Apna resume ya profile do, job description do — matchScore, likely questions, skill gaps, aur ek day-wise preparation plan milega."
+        desc: "Provide your resume or profile along with a job description — get a matchScore, likely questions, skill gaps, and a day-wise preparation plan."
     },
     {
         num: "02",
         title: "Tailored Resume Builder",
-        desc: "Job ke hisaab se ATS-friendly resume banwao — apne resume ko reference bana ke, ya sirf apne skills/experience se."
+        desc: "Get an ATS-friendly resume tailored to the job — built using your resume as a reference, or just your skills and experience."
     }
 ]
 
 const STEPS = [
-    { n: "1", title: "Share your story", desc: "Resume upload karo, ya bas apne skills/experience type kar do — jo bhi ho." },
-    { n: "2", title: "We find the gaps", desc: "AI tumhare profile ko job description ke against analyze karta hai." },
+    { n: "1", title: "Share your story", desc: "Upload your resume, or simply type in your skills and experience — whatever you have." },
+    { n: "2", title: "We find the gaps", desc: "AI analyzes your profile against the job description." },
     { n: "3", title: "You walk in ready", desc: "Questions, answers, plan, tailored resume — sab ready." }
 ]
 
 const FAQS = [
-    { q: "Kya resume dena zaroori hai?", a: "Nahi — resume ya self-description (skills/experience) mein se koi ek dena kaafi hai. Dono doge toh behtar result milega." },
-    { q: "Kya ye free hai?", a: "Haan, account banake dono features (Interview Report + Resume Builder) free use kar sakte ho." },
-    { q: "Mera photo/avatar kis liye hai?", a: "Register karte waqt photo doge toh apna khud ka particle animation dekhoge, generic default ki jagah." }
+    { q: "Do I need to provide a resume?", a: "No — providing either a resume or a self description (skills/experience) is enough. Providing both gives a better result." },
+    { q: "Is this free?", a: "Yes, you can use both features (Interview Report + Resume Builder) for free with an account." },
+    { q: "Can I add a profile photo?", a: "Yes — it's completely optional at signup, and you can add or change it anytime from your Profile." }
 ]
 
 const Landing = () => {
-    const { user } = useAuth()
+    
     const [openFaq, setOpenFaq] = useState(null)
 
     useEffect(() => {
@@ -75,8 +73,9 @@ const Landing = () => {
         }
     }, [])
 
-    return (
+      return (
         <main className="landing">
+            <AnimatedBackground />
             {/* Background glowing spotlight */}
             <div className="landing-glow-spot" />
 
@@ -104,11 +103,7 @@ const Landing = () => {
                     </div>
                 </div>
 
-                <div className="landing-hero-particle-container slide-up-hero">
-                    <div className="landing-hero-particle">
-                        <ParticlePortrait imageUrl={user?.avatar || DEFAULT_AVATAR} />
-                    </div>
-                </div>
+               
             </section>
 
             <section className="landing-section scroll-reveal">

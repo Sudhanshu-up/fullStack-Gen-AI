@@ -62,11 +62,11 @@
 
     .auth-gate-secondary-btn{
         background-color: transparent;
-        border: 1px solid var(--evergreen);
+        border: 1px solid var(--lime);
         color: var(--parchment);
 
         &:hover{
-            background-color: var(--evergreen);
+            background-color: var(--lime);
             color: var(--ink);
         }
     }

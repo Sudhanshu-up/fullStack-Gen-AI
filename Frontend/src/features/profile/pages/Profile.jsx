@@ -26,7 +26,7 @@ const Profile = () => {
         setError("")
 
         if (!username.trim() && !avatarFile) {
-            setError("Kuch toh change karo update karne se pehle.")
+           setError("Please change something before updating.")
             return
         }
 
@@ -36,7 +36,7 @@ const Profile = () => {
         })
 
         if (result.success) {
-            setMessage("Profile update ho gaya!")
+            setMessage("your Profile is update")
             setAvatarFile(null)
         } else {
             setError(result.message)

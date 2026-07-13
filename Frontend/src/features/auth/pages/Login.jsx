@@ -27,7 +27,7 @@ const Login = () => {
 
   return (
     <AuthLayout>
-      <main>
+      <main className="auth-page">
         <div className="form-container">
           <h1>Login</h1>
 

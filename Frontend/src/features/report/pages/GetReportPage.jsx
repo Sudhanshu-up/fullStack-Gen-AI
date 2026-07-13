@@ -65,7 +65,7 @@ const GetReportPage = () => {
 
             <div className="grp-container">
                 <h1>Interview Prep Report</h1>
-                <p className="grp-subtitle">Job description do — resume ya self-description mein se ek zaroor do.</p>
+                <p className="grp-subtitle">Provide a job description — and either a resume or a self description.</p>
 
                 <form onSubmit={handleSubmit} className="grp-form">
 

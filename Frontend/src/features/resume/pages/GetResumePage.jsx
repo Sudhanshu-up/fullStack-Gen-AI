@@ -69,11 +69,11 @@ const GetResumePage = () => {
 
             <div className="grs-container">
                 <h1>Resume Builder</h1>
-                <p className="grs-subtitle">Sab kuch optional hai — bas resume ya self-description mein se ek do.</p>
+               <p className="grs-subtitle">Everything is optional — just provide either a resume or a self description.</p>
 
                 {success && (
                     <div className="grs-success">
-                        ✅ Resume ban gaya! Download shuru ho gaya hoga — check your downloads folder.
+                       ✅ Your resume is ready! The download should have started — check your downloads folder.
                     </div>
                 )}
 
@@ -82,7 +82,7 @@ const GetResumePage = () => {
                     {error && <p className="grs-error">{error}</p>}
 
                     <div className="grs-field">
-                        <label>Job Description <span className="grs-optional">(optional — behtar tailored resume ke liye)</span></label>
+                       <label>Job Description <span className="grs-optional">(optional — for a better tailored resume)</span></label>
                         <textarea
                             rows={5}
                             placeholder="Paste the job description you're targeting..."

@@ -38,7 +38,7 @@ const Register = () => {
 
    return (
       <AuthLayout>
-         <main>
+        <main className="auth-page">
             <div className="form-container">
                <h1>Register</h1>
 
@@ -61,7 +61,7 @@ const Register = () => {
                         onChange={handleAvatarChange}
                         style={{ display: "none" }}
                      />
-                     <p className="avatar-hint">Optional — apna photo daaloge toh apna khud ka animation dekhoge</p>
+                    <p className="avatar-hint">Optional — add a photo to personalize your profile.</p>
                   </div>
 
                   <div className="input-group">
