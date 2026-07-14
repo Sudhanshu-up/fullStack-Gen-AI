@@ -1,9 +1,4 @@
-import axios from "axios";
-
-const api = axios.create({
-  baseURL: "https://fullstack-gen-ai-qmxy.onrender.com",
-  withCredentials: true,
-});
+import { api, setToken, clearToken } from "../../../shared/api/apiClient.js";
 
 export async function register({ username, email, password, avatarFile }) {
   try {
@@ -18,6 +13,7 @@ export async function register({ username, email, password, avatarFile }) {
     const response = await api.post("/api/auth/register", formData, {
       headers: { "Content-Type": "multipart/form-data" }
     });
+    if (response.data?.token) setToken(response.data.token);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -30,7 +26,7 @@ export async function login({ email, password }) {
       email,
       password,
     });
-
+    if (response.data?.token) setToken(response.data.token);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -40,17 +36,17 @@ export async function login({ email, password }) {
 export async function logout() {
   try {
     const response = await api.post("/api/auth/logout");
-
     return response.data;
   } catch (error) {
     console.log(error);
+  } finally {
+    clearToken();
   }
 }
 
 export async function getMe() {
   try {
     const response = await api.get("/api/auth/getme");
-
     return response.data;
   } catch (error) {
     console.log(error);

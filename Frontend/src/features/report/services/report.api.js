@@ -1,9 +1,4 @@
-import axios from "axios"
-
-const api = axios.create({
-    baseURL: "https://fullstack-gen-ai-qmxy.onrender.com",
-    withCredentials: true,
-})
+import { api } from "../../../shared/api/apiClient.js"
 
 export async function generateInterviewReport({ jobDescription, resumeFile, skills, experience, projectLinks, additionalInfo }) {
     const formData = new FormData()

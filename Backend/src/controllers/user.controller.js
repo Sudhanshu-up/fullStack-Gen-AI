@@ -60,6 +60,7 @@ const userRegister = async (req, res) => {
   res.status(201)
     .json({
       message: "User registerd Successfully",
+      token, // cross-site (Vercel + Render) ke liye — frontend ise Authorization header me bhejega
       user: {
         _id: user._id,
         username: user.username,
@@ -111,6 +112,7 @@ const loginUser = async (req, res) => {
   res.status(200)
     .json({
       message: "user loggedIn successfully",
+      token, // cross-site (Vercel + Render) ke liye — frontend ise Authorization header me bhejega
       user: {
         _id: user._id,
         username: user.username,
@@ -122,7 +124,13 @@ const loginUser = async (req, res) => {
 
 
 const logOutUser = async (req, res) => {
-  const token = req.cookies.token
+  let token = req.cookies?.token
+  if (!token) {
+    const authHeader = req.headers.authorization || ""
+    if (authHeader.startsWith("Bearer ")) {
+      token = authHeader.slice(7)
+    }
+  }
 
   if (token) {
     await TokenBlackList.create({ token })
