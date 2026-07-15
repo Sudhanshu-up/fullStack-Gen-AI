@@ -36,3 +36,16 @@ api.interceptors.request.use((config) => {
   }
   return config
 })
+
+// Agar backend 401 de (expired/invalid/blacklisted token), to stale
+// token ko turant clear karo — warna UI "logged in" dikhata rehta hai
+// jabki har protected call fail ho rahi hoti hai.
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error?.response?.status === 401) {
+      clearToken()
+    }
+    return Promise.reject(error)
+  }
+)

@@ -3,17 +3,20 @@ import {TokenBlackList} from "../model/blacklist.model.js"
 
 const authUser = async(req,res,next)=>{
 
-    // Pehle cookie check karo (same-site / local dev ke liye),
-    // warna Authorization: Bearer <token> header check karo
-    // (cross-site deployments jaise Vercel + Render ke liye, jahan
-    // third-party cookies browser block kar deta hai).
-    let token = req.cookies?.token
+    // Pehle Authorization: Bearer <token> header check karo — ye hi
+    // production (Vercel + Render, cross-site) me reliably kaam karta hai.
+    // Cookie sirf local dev fallback ke liye hai; use nahi karte agar
+    // header already mil gaya, kyunki ek stale/blocked cross-site cookie
+    // otherwise ek valid header token ko shadow kar sakti hai.
+    let token = null
+
+    const authHeader = req.headers.authorization || ""
+    if (authHeader.startsWith("Bearer ")) {
+        token = authHeader.slice(7)
+    }
 
     if (!token) {
-        const authHeader = req.headers.authorization || ""
-        if (authHeader.startsWith("Bearer ")) {
-            token = authHeader.slice(7)
-        }
+        token = req.cookies?.token
     }
 
     if(!token){

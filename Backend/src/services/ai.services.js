@@ -128,7 +128,13 @@ async function generateInterviewReport({ resume, selfDescription, jobDescription
 }
 
 async function generatePdfFromHtml(htmlContent) {
-    const browser = await puppeteer.launch()
+    // Render (aur zyadatar container platforms) me Chromium ka default
+    // sandbox nahi chalta — isliye --no-sandbox flags zaroori hain,
+    // warna puppeteer.launch() silently crash/timeout ho sakta hai.
+    const browser = await puppeteer.launch({
+        headless: true,
+        args: ["--no-sandbox", "--disable-setuid-sandbox"]
+    })
     const page = await browser.newPage()
     await page.setContent(htmlContent, { waitUntil: "networkidle0" })
 
